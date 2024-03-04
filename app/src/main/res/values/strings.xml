@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Expense Tracker</string>
+    <string name="add_expense_btn">Add Expense Button</string>
+    <string name="back_btn">BACK</string>
+    <string name="new_expense">New Expense</string>
+    <string name="expense_name">Expense Name</string>
+    <string name="dollar_sign">$</string>
+    <string name="example_dollar_value">Ex: 15.34</string>
+    <string name="location">Location</string>
+    <string name="category">Category</string>
+    <string name="settings">Settings</string>
+    <string name="save">SAVE</string>
+    <string name="store_name">Store Name</string>
+    <string name="store_address">Store Address</string>
+    <string name="store_type">Store Type</string>
+    <string name="store_list">Store List</string>
+</resources>

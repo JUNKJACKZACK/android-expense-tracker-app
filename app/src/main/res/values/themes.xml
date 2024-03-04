@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ExpenseTracker" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/app_default_color</item> <!-- Toolbar color -->
+        <item name="colorPrimaryDark">@color/app_default_color</item> <!-- Status bar color -->
+        <item name="colorAccent">@color/app_default_color</item> <!-- Accent color for buttons, etc. -->
+
+        <item name="android:textColor">@color/default_text_color</item>
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.ExpenseTracker" parent="Base.Theme.ExpenseTracker" />
+</resources>
