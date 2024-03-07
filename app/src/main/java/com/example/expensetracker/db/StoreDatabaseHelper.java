@@ -58,25 +58,22 @@ public class StoreDatabaseHelper extends SQLiteOpenHelper {
 
 
     public ArrayList<StoreModel> readStores() {
-    SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorStores = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 
-    Cursor cursorStores = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-
-    ArrayList<StoreModel> storeModelArrayList = new ArrayList<StoreModel>();
+        ArrayList<StoreModel> storeModelArrayList = new ArrayList<>();
 
         if (cursorStores.moveToFirst()) {
             do {
-                storeModelArrayList.add(new StoreModel(cursorStores.getInt(1),
+                storeModelArrayList.add(new StoreModel(cursorStores.getInt(0),
+                        cursorStores.getString(1),
                         cursorStores.getString(2),
-                        cursorStores.getString(3),
-                        cursorStores.getString(4)));
+                        cursorStores.getString(3)));
             } while (cursorStores.moveToNext());
-
         }
 
         cursorStores.close();
         return storeModelArrayList;
-
     }
 
 

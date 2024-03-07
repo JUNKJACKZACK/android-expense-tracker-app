@@ -14,4 +14,9 @@
     <string name="store_address">Store Address</string>
     <string name="store_type">Store Type</string>
     <string name="store_list">Store List</string>
+    <string name="enter_store_type">Enter Store Type</string>
+    <string name="enter_store_address">Enter Store Address</string>
+    <string name="enter_store_name">Enter Store Name</string>
+    <string name="read_all_stores">Read All Stores</string>
+    <string name="add_store">Add Store</string>
 </resources>

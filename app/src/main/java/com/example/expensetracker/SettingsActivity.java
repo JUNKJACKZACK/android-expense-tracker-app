@@ -22,11 +22,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        nameEditText = findViewById(R.id.storeNameEditText);
-        addressEditText = findViewById(R.id.storeAddressEditText);
-        typeEditText = findViewById(R.id.storeTypeEditText);
-        Button saveButton = findViewById(R.id.saveBtn);
-
         dbHelper = new StoreDatabaseHelper(this);
 
         Button backBtn = findViewById(R.id.backBtn);
@@ -36,27 +31,24 @@ public class SettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        saveButton.setOnClickListener(view -> saveFormDataToDatabase());
     }
-
-    private void saveFormDataToDatabase() {
-        String name = nameEditText.getText().toString();
-        String address = addressEditText.getText().toString();
-        String type = typeEditText.getText().toString();
-
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(StoreDatabaseHelper.COLUMN_NAME, name);
-        values.put(StoreDatabaseHelper.COLUMN_ADDRESS, address);
-        values.put(StoreDatabaseHelper.COLUMN_TYPE, type);
-
-        long newRowId = db.insert(StoreDatabaseHelper.TABLE_NAME, null, values);
-
-        if (newRowId != -1) {
-            Toast.makeText(SettingsActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(SettingsActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    private void saveFormDataToDatabase() {
+//        String name = nameEditText.getText().toString();
+//        String address = addressEditText.getText().toString();
+//        String type = typeEditText.getText().toString();
+//
+//        SQLiteDatabase db = dbHelper.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(StoreDatabaseHelper.COLUMN_NAME, name);
+//        values.put(StoreDatabaseHelper.COLUMN_ADDRESS, address);
+//        values.put(StoreDatabaseHelper.COLUMN_TYPE, type);
+//
+//        long newRowId = db.insert(StoreDatabaseHelper.TABLE_NAME, null, values);
+//
+//        if (newRowId != -1) {
+//            Toast.makeText(SettingsActivity.this, "Data saved successfully", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(SettingsActivity.this, "Error saving data", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }

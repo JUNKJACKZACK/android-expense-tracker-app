@@ -1,6 +1,8 @@
 package com.example.expensetracker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +20,7 @@ public class ViewStores extends AppCompatActivity {
     private StoreDatabaseHelper dbHandler;
     private StoreRVAdapter storeRVAdapter;
     private RecyclerView storesRV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

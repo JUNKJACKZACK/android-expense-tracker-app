@@ -20,9 +20,10 @@
         android:layout_width="317dp"
         android:layout_height="57dp"
         android:layout_margin="10dp"
-        android:hint="Enter course Name"
+        android:hint="@string/enter_store_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.244" />
@@ -32,9 +33,10 @@
         android:layout_width="303dp"
         android:layout_height="53dp"
         android:layout_margin="10dp"
-        android:hint="Enter Course Duration"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="230dp" />
+        android:hint="@string/enter_store_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editStoreName" />
 
     <EditText
         android:id="@+id/editStoreType"
@@ -42,23 +44,37 @@
         android:layout_height="54dp"
         android:layout_margin="10dp"
         android:layout_marginTop="48dp"
-        android:hint="Enter Course Tracks"
+        android:hint="@string/enter_store_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editStoreAddress" />
 
     <Button
         android:id="@+id/readStoreBtn"
-        android:layout_width="232dp"
-        android:layout_height="55dp"
-        android:layout_margin="10dp"
-        android:text="Read All Courses"
+        android:layout_width="160dp"
+        android:layout_height="44dp"
+        android:layout_margin="16dp"
+        android:text="@string/read_all_stores"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addStoreBtn"
+        android:layout_width="160dp"
+        android:layout_height="44dp"
+        android:layout_margin="16dp"
+        android:text="@string/add_store"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.595" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

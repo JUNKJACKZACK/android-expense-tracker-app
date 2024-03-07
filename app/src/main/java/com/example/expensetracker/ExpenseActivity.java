@@ -2,14 +2,19 @@ package com.example.expensetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.expensetracker.db.StoreDatabaseHelper;
+import com.example.expensetracker.model.StoreModel;
+
+import java.util.ArrayList;
 
 public class ExpenseActivity extends AppCompatActivity {
 
@@ -18,20 +23,44 @@ public class ExpenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_expense);
 
-        Spinner categorySpinner = findViewById(R.id.categorySelection);
-        String[] options = {"Option 1", "Option 2", "Option 3", "Option 4"};
+        ArrayList<String> storeNames = new ArrayList<>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, options);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        // Fetch store names from your SQLite database
+        StoreDatabaseHelper dbHelper = new StoreDatabaseHelper(this);
+        ArrayList<StoreModel> stores = dbHelper.readStores();
+        for (StoreModel store : stores) {
+            storeNames.add(store.getName());
+        }
 
-        categorySpinner.setAdapter(adapter);
+        Spinner spinner = findViewById(R.id.storeSpinner);
+
+        // Create a custom ArrayAdapter to set text color
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, storeNames) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text = view.findViewById(android.R.id.text1);
+                text.setTextColor(Color.BLACK); // Set text color to black
+                return view;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView text = view.findViewById(android.R.id.text1);
+                text.setTextColor(Color.BLACK); // Set text color to black
+                return view;
+            }
+        };
+
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
 
         Button backBtn = findViewById(R.id.backBtn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        backBtn.setOnClickListener(view -> finish());
     }
 }
+

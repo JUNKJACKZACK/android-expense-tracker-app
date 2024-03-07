@@ -27,12 +27,20 @@ public class StoreListActivity extends AppCompatActivity {
         storeNameEdit = findViewById(R.id.editStoreName);
         storeAddressEdit = findViewById(R.id.editStoreAddress);
         storeTypeEdit = findViewById(R.id.editStoreType);
-//        addStoreBtn = findViewById(R.id.addStoreBtn);
+        addStoreBtn = findViewById(R.id.addStoreBtn);
         readStoreBtn = findViewById(R.id.readStoreBtn);
 
         // creating a new dbhandler class
         // and passing our context to it.
         dbHandler = new StoreDatabaseHelper(StoreListActivity.this);
+
+        Button backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         // below line is to add on click listener for our add store button.
         addStoreBtn.setOnClickListener(new View.OnClickListener() {
